@@ -1,0 +1,150 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+
+/*Styling Begins*/
+body{
+    background-color: rgb(64, 146, 197);
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 200%;
+    font-style: normal;
+    color: black;
+}
+.main{
+    margin-top: 64px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator,
+.calc-screen,
+.calc-body,
+.btn,
+.btn-double{
+    border-radius: 8px;
+}
+
+.calculator{
+    border: 2px solid azure;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    height: 520px;
+    width: 380px;
+    justify-content: space-evenly;
+    border-radius: 32px;
+    box-shadow: 3px 3px 8px 5px rgba(0,0,0,0.4);
+    
+}
+
+.calc-screen{
+    background-color:rgb(115, 150, 109);
+    height: 25%;
+    width: 80%;
+    font-family: 'Seven Segment', sans-serif;
+}
+
+
+.calc-body{
+    height: 60%;
+    width: 80%;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 2px;
+   
+    
+    
+}
+
+.btn{
+    transition: all 0.2s;
+    background-color: rgb(75, 75, 75);
+    height: calc((100%/4) - 4px);
+    width: calc((100%/4) - 4px);
+    
+}
+
+.btn-double{
+    transition: all 0.2s;
+    background-color: rgb(75, 75, 75);
+    height: calc((100%/4) - 4px);
+    width: calc((100%/2) -  4px);
+}
+
+
+.num:hover{
+    background-color: rgb(190, 190, 190);
+    color: black;
+    translate: 0 -2px;
+}
+
+.op:hover{
+    background-color: rgb(224, 188, 6);
+    translate: 0 -2px;
+}
+
+.equal:hover{
+    background-color: palevioletred;
+    translate: 0 -2px;
+}
+
+.btn,
+.btn-double{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
