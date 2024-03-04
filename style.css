@@ -50,8 +50,9 @@ table {
 
 
 /*Styling Begins*/
+
 body{
-    background-color: rgb(64, 146, 197);
+    background-image: url(./chevron.png);
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -69,14 +70,13 @@ body{
 .calculator,
 .calc-screen,
 .calc-body,
-.btn,
-.btn-double{
+.btn{
     border-radius: 8px;
 }
 
 .calculator{
     user-select: none;
-    border: 2px solid azure;
+    border: 2px solid lightgray;
     display: flex;
     gap: 4px;
     flex-direction: column;
@@ -91,6 +91,9 @@ body{
 }
 
 .calc-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color:rgb(115, 150, 109);
     height: 25%;
     width: 80%;
@@ -102,7 +105,7 @@ body{
     height: 60%;
     width: 80%;
     display: flex;
-    gap: 5px;
+    gap: 8px;
     flex-wrap: wrap;
     padding: 2px;
    
@@ -113,10 +116,18 @@ body{
 .btn{
     transition: all 0.2s;
     background-color: rgb(75, 75, 75);
-    height: calc((100%/4) - 5px);
-    width: calc((100%/4) - 5px);
-    
+    height: calc((100%/4) - 8px);
+    width: calc((100%/4) - 8px);
+
+    box-shadow: 1px 1px 3px 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 64px;
 }
+    
+
 
 
 
@@ -140,14 +151,17 @@ body{
     translate: 0 -2px;
 }
 
-.btn,
-.btn-double{
-    box-shadow: 1px 1px 3px 1px white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.exp-str{
+    width: 100%;
+    word-wrap: break-word;
 }
+
+
+
+
+
+
+
 
 .footer{
     color:rgb(75, 75, 75);
@@ -160,3 +174,7 @@ a{
     text-decoration: none;
     color: black;
 }
+
+
+
+
