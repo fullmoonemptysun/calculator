@@ -75,6 +75,7 @@ body{
 }
 
 .calculator{
+    user-select: none;
     border: 2px solid azure;
     display: flex;
     gap: 4px;
@@ -101,7 +102,7 @@ body{
     height: 60%;
     width: 80%;
     display: flex;
-    gap: 4px;
+    gap: 5px;
     flex-wrap: wrap;
     padding: 2px;
    
@@ -112,17 +113,11 @@ body{
 .btn{
     transition: all 0.2s;
     background-color: rgb(75, 75, 75);
-    height: calc((100%/4) - 4px);
-    width: calc((100%/4) - 4px);
+    height: calc((100%/4) - 5px);
+    width: calc((100%/4) - 5px);
     
 }
 
-.btn-double{
-    transition: all 0.2s;
-    background-color: rgb(75, 75, 75);
-    height: calc((100%/4) - 4px);
-    width: calc((100%/2) -  4px);
-}
 
 
 .num:hover{
@@ -140,11 +135,28 @@ body{
     background-color: palevioletred;
     translate: 0 -2px;
 }
+.clear:hover{
+    background-color:green;
+    translate: 0 -2px;
+}
 
 .btn,
 .btn-double{
+    box-shadow: 1px 1px 3px 1px white;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.footer{
+    color:rgb(75, 75, 75);
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
