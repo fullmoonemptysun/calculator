@@ -1,6 +1,14 @@
 let runningValues = [0];
+let num1 = null;
+let num2 = null;
+let op = null;
+
+
 const strExp = document.querySelector(".exp-str");
+const strRes = document.querySelector(".res-str");
 updateExp();
+updateRes();
+
 
 
 let numButtons = document.querySelectorAll(".num");
@@ -17,13 +25,25 @@ numButtons.forEach((numBtn) => numBtn.addEventListener('click', function(e){
         }
 
     updateExp();
+    updateRes();
 }))
 
+let opButtons = document.querySelectorAll(".op");
+opButtons = Array.from(opButtons);
+opButtons.forEach((opBtn) => opBtn.addEventListener('click', function(event){
+    num1 = (Number)()
+}))
 
+function updateRes(){
+    numOne  = (Number)(runningValues.join(""));
+    strRes.textContent = `= ${numOne}`;
+}
 
 function updateExp(){
     strExp.textContent = (Number)(runningValues.join(""));
+    return (Number)(runningValues.join(""));
 }
+
 
 
 function add(num1, num2){
