@@ -1,49 +1,82 @@
-let runningValues = [0];
-let num1 = null;
-let num2 = null;
-let op = null;
+let currCalc = {
+    num1 : [0],
+    num2 : [0],
+    op : null,
+    result : 0,
+                };
 
-
-const strExp = document.querySelector(".exp-str");
-const strRes = document.querySelector(".res-str");
-updateExp();
+let num = 0; //starting value for the exp string.
+let numValue = 0;
+let strExp = document.querySelector(".exp-str");
+let strRes = document.querySelector(".res-str");
+updateExp(num);
 updateRes();
+
 
 
 
 let numButtons = document.querySelectorAll(".num");
 numButtons = Array.from(numButtons);
 numButtons.forEach((numBtn) => numBtn.addEventListener('click', function(e){
+    numValue = (Number)(numBtn.getAttribute("value"));
+    if(currCalc.op != null){
+        updateExp((Number)(currCalc.num2.join("")));
 
-        
-        if(runningValues[0] == 0){
-            runningValues[0] = (Number)(numBtn.getAttribute("value"));
+        if(currCalc.num2[0] === 0){
+            currCalc.num2[0] = numValue;
         }
 
         else{
-            runningValues.push((Number)(numBtn.getAttribute("value")));
+            currCalc.num2.push(numValue);
         }
 
-    updateExp();
-    updateRes();
-}))
+        updateExp((Number)(currCalc.num2.join("")));
+    }
 
-let opButtons = document.querySelectorAll(".op");
-opButtons = Array.from(opButtons);
-opButtons.forEach((opBtn) => opBtn.addEventListener('click', function(event){
-    num1 = (Number)()
-}))
+    else if(currCalc.num1[0] === 0){
+        currCalc.num1[0] = numValue;
+    }
+
+    else{
+        currCalc.num1.push(numValue);
+    }
+
+    updateExp((Number)(currCalc.num1.join("")));
+    updateRes();
+}));
+
+
+function updateExp(num){
+    strExp.textContent = (Number)(num);
+}
 
 function updateRes(){
-    numOne  = (Number)(runningValues.join(""));
-    strRes.textContent = `= ${numOne}`;
+    strRes.textContent = operate((Number)(currCalc.num1.join("")), currCalc.op, (Number)(currCalc.num2.join("")));
 }
 
-function updateExp(){
-    strExp.textContent = (Number)(runningValues.join(""));
-    return (Number)(runningValues.join(""));
-}
 
+function operate(num1, op, num2){
+    if(op === null){
+        return num1;
+    }
+
+    switch (op){
+        case "add":
+            return add(num1, num2);
+            break;
+
+        case "sub":
+            return sub(num1, num2);
+            break;
+        case "mult":
+            return mult(num1,num2);
+            break;
+        case "div":
+            return div(num1, num2);
+            break;
+
+    }
+}
 
 
 function add(num1, num2){
