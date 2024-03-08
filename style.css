@@ -52,7 +52,7 @@ table {
 /*Styling Begins*/
 
 body{
-    background-image: url(./chevron.png);
+    background-image: url(./graphics/chevron.png);
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 300;
