@@ -1,2 +1,2 @@
-# calculator
-A calculator app
+# Calculator
+A calculator app with basic Mathematical operation capabilities
