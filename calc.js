@@ -2,8 +2,7 @@ let currCalc = {
     num1 : [0],
     num2 : [0],
     op : null,
-    result : 0,
-                };
+    result: 0          };
 
 let num = 0; //starting value for the exp string.
 let numValue = 0;
@@ -35,15 +34,58 @@ numButtons.forEach((numBtn) => numBtn.addEventListener('click', function(e){
 
     else if(currCalc.num1[0] === 0){
         currCalc.num1[0] = numValue;
+        updateExp((Number)(currCalc.num1.join("")));
     }
 
     else{
         currCalc.num1.push(numValue);
+        updateExp((Number)(currCalc.num1.join("")));
     }
 
-    updateExp((Number)(currCalc.num1.join("")));
     updateRes();
 }));
+
+let opButtons = document.querySelectorAll(".op");
+opButtons = Array.from(opButtons);
+opButtons.forEach((opBtn) => opBtn.addEventListener('click', function(e){
+    let opVal = opBtn.getAttribute("value");
+    if(currCalc.op == null){
+        currCalc.op = opVal;
+        strExp.textContent += opBtn.getAttribute("name");
+
+    }
+
+    else{
+        currCalc.op = opVal;
+        strExp.textContent = currCalc.result + opBtn.getAttribute("name");
+
+        currCalc.num1 = currCalc.result.toString().split("");
+        currCalc.num2 = [0];
+
+    }
+}));
+
+let clearButton = document.querySelector(".clear");
+clearButton.addEventListener('click', function(e){
+    currCalc = {
+        num1: [0],
+        num2: [0],
+        op: null,
+    }
+    updateExp(num);
+    updateRes();
+});
+
+let equalButton = document.querySelector(".equal");
+equalButton.addEventListener('click', function(e){
+    currCalc.num1 = currCalc.result.toString().split(""); 
+    currCalc.num2 = [0];
+    currCalc.op = null;
+
+    updateExp((Number)(currCalc.num1.join("")));
+    strRes.textContent = "= " + currCalc.result;
+})
+
 
 
 function updateExp(num){
@@ -51,7 +93,10 @@ function updateExp(num){
 }
 
 function updateRes(){
-    strRes.textContent = operate((Number)(currCalc.num1.join("")), currCalc.op, (Number)(currCalc.num2.join("")));
+    let res =  operate((Number)(currCalc.num1.join("")), currCalc.op, (Number)(currCalc.num2.join("")));
+    strRes.textContent = "= " + res;
+    currCalc.result = res
+
 }
 
 
